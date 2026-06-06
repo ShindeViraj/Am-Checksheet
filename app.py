@@ -3,6 +3,7 @@ import io
 import re
 from datetime import datetime, timedelta
 from collections import OrderedDict
+from report_generator import find_template_data
 
 from flask import Flask, render_template, request, jsonify, send_file
 from db import get_db
@@ -32,59 +33,150 @@ def machine_report():
 @app.route('/api/dashboard/summary')
 def api_dashboard_summary():
     date = request.args.get('date', datetime.now().strftime('%Y-%m-%d'))
+    period = request.args.get('period', 'day')
+    machine_id = request.args.get('machine_id', '')
+
     try:
+        end_date = datetime.strptime(date, '%Y-%m-%d')
+        if period == 'week':
+            start_date = end_date - timedelta(days=7)
+        elif period == 'month':
+            start_date = end_date - timedelta(days=30)
+        else:
+            start_date = end_date
+            
+        start_date_str = start_date.strftime('%Y-%m-%d')
+        end_date_str = end_date.strftime('%Y-%m-%d')
+        
+        # Calculate prior period for trend
+        if period == 'week':
+            prev_start = start_date - timedelta(days=7)
+            prev_end = start_date - timedelta(days=1)
+        elif period == 'month':
+            prev_start = start_date - timedelta(days=30)
+            prev_end = start_date - timedelta(days=1)
+        else: # day
+            prev_start = start_date - timedelta(days=1)
+            prev_end = start_date - timedelta(days=1)
+            
+        prev_start_str = prev_start.strftime('%Y-%m-%d')
+        prev_end_str = prev_end.strftime('%Y-%m-%d')
+
         conn = get_db()
         with conn.cursor() as cur:
-            cur.execute("""
+            params = [start_date_str, end_date_str]
+            prev_params = [prev_start_str, prev_end_str]
+            machine_sql = ""
+            if machine_id:
+                machine_sql = " AND machine_id = %s"
+                params.append(machine_id)
+                prev_params.append(machine_id)
+
+            cur.execute(f"""
                 SELECT COUNT(*) as total_checkpoints,
                        SUM(checkpoint_ok) as total_ok,
                        SUM(checkpoint_not_ok) as total_nok,
                        AVG(time_taken) as avg_time
                 FROM checkpoints
-                WHERE DATE(start_time) = %s
-            """, (date,))
+                WHERE DATE(start_time) >= %s AND DATE(start_time) <= %s
+                {machine_sql}
+            """, tuple(params))
             summary = cur.fetchone()
-
-            cur.execute("""
-                SELECT machine_id,
-                       SUM(checkpoint_ok) as total_ok,
-                       SUM(checkpoint_not_ok) as total_nok
+            
+            cur.execute(f"""
+                SELECT COUNT(*) as prev_total
                 FROM checkpoints
-                WHERE DATE(start_time) = %s
-                GROUP BY machine_id
-            """, (date,))
-            machines = cur.fetchall()
+                WHERE DATE(start_time) >= %s AND DATE(start_time) <= %s
+                {machine_sql}
+            """, tuple(prev_params))
+            prev_summary = cur.fetchone()
+            
+            trend_percent = 0
+            if prev_summary and prev_summary['prev_total'] > 0:
+                trend_percent = round(((summary['total_checkpoints'] - prev_summary['prev_total']) / prev_summary['prev_total']) * 100)
+            elif summary['total_checkpoints'] > 0:
+                trend_percent = 100
+                
+            if machine_id and period != 'day':
+                # Show trend over time for a specific machine
+                cur.execute(f"""
+                    SELECT DATE(start_time) as group_key,
+                           SUM(checkpoint_ok) as total_ok,
+                           SUM(checkpoint_not_ok) as total_nok
+                    FROM checkpoints
+                    WHERE DATE(start_time) >= %s AND DATE(start_time) <= %s
+                      AND machine_id = %s
+                    GROUP BY DATE(start_time)
+                    ORDER BY DATE(start_time)
+                """, (start_date_str, end_date_str, machine_id))
+            else:
+                cur.execute(f"""
+                    SELECT machine_id as group_key,
+                           SUM(checkpoint_ok) as total_ok,
+                           SUM(checkpoint_not_ok) as total_nok
+                    FROM checkpoints
+                    WHERE DATE(start_time) >= %s AND DATE(start_time) <= %s
+                    {machine_sql}
+                    GROUP BY machine_id
+                """, tuple(params))
+            chart_data = cur.fetchall()
 
-            cur.execute("""
+            recent_params = []
+            recent_sql = ""
+            if machine_id:
+                recent_sql = "WHERE machine_id = %s"
+                recent_params.append(machine_id)
+
+            cur.execute(f"""
                 SELECT machine_id, checkpoint_no, checkpoint_ok,
                        checkpoint_not_ok, time_taken, start_time
                 FROM checkpoints
-                ORDER BY created_at DESC
+                {recent_sql}
+                ORDER BY start_time DESC
                 LIMIT 10
-            """)
+            """, tuple(recent_params))
             recent = cur.fetchall()
 
         conn.close()
 
         # Convert datetime objects and Decimal for JSON serialisation
         for r in recent:
+            # Map description from JSON
+            template_data = find_template_data(r['machine_id'])
+            cp_desc = "Description not found"
+            if template_data and 'checkpoints' in template_data:
+                for cp in template_data['checkpoints']:
+                    if str(cp.get('s_no')) == str(r['checkpoint_no']):
+                        cp_desc = cp.get('check_point', 'Description not found')
+                        break
+            r['description'] = cp_desc
+            
             for k, v in r.items():
                 if isinstance(v, datetime):
                     r[k] = v.strftime('%Y-%m-%d %H:%M:%S')
                 elif hasattr(v, 'is_finite'):  # Decimal
                     r[k] = float(v)
 
+        for r in chart_data:
+            if hasattr(r['group_key'], 'strftime'):
+                r['group_key'] = r['group_key'].strftime('%Y-%m-%d')
+            elif hasattr(r['group_key'], 'is_finite'): # fallback
+                pass
+
         return jsonify({
             'status': 'success',
             'date': date,
+            'period': period,
+            'machine_id': machine_id,
             'data': {
                 'summary': {
-                    'total': int(summary['total_checkpoints'] or 0),
+                    'total': summary['total_checkpoints'] or 0,
                     'ok': int(summary['total_ok'] or 0),
                     'nok': int(summary['total_nok'] or 0),
+                    'trend': trend_percent,
                     'avg_time': float(summary['avg_time'] or 0),
                 },
-                'machines': machines,
+                'chart_data': chart_data,
                 'recent': recent,
             }
         })
