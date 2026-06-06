@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TPM Checkpoint Dashboard</title>
+    <link rel="stylesheet" href="/static/bootstrap.min.css">
+    <style>
+        body { background-color: #f8f9fa; }
+        .card { box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 20px; }
+        .sidebar { background-color: #343a40; min-height: 100vh; color: white; padding-top: 20px; }
+        .sidebar a { color: #adb5bd; text-decoration: none; padding: 10px 20px; display: block; }
+        .sidebar a:hover, .sidebar a.active { background-color: #495057; color: white; }
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-2 d-none d-md-block sidebar">
+            <div class="sidebar-sticky">
+                <h5 class="px-3">TPM System</h5>
+                <ul class="nav flex-column mt-4">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/machine_report">Machine Reports</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <main role="main" class="col-md-10 ml-sm-auto px-4 pt-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+                <h1 class="h2">Dashboard Summary</h1>
+                <div class="btn-toolbar mb-2 mb-md-0">
+                    <input type="date" id="dashboardDate" class="form-control" value="{{ today }}">
+                </div>
+            </div>
+
+            <div class="row" id="summaryCards">
+                <div class="col-md-3">
+                    <div class="card text-white bg-primary">
+                        <div class="card-body">
+                            <h5 class="card-title">Total Checks</h5>
+                            <h2 id="totalChecks">-</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card text-white bg-success">
+                        <div class="card-body">
+                            <h5 class="card-title">Total OK</h5>
+                            <h2 id="totalOk">-</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card text-white bg-danger">
+                        <div class="card-body">
+                            <h5 class="card-title">Total NOK</h5>
+                            <h2 id="totalNok">-</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card text-white bg-info">
+                        <div class="card-body">
+                            <h5 class="card-title">Avg Time (s)</h5>
+                            <h2 id="avgTime">-</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header">Machine Status Overview</div>
+                        <div class="card-body">
+                            <canvas id="machineChart" height="100"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">Recent Checkpoints</div>
+                        <div class="card-body p-0">
+                            <table class="table table-striped mb-0" id="recentTable">
+                                <thead>
+                                    <tr>
+                                        <th>Machine</th>
+                                        <th>CP#</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<script src="/static/bootstrap.bundle.min.js"></script>
+<script src="/static/chart.umd.js"></script>
+<script>
+let machineChart = null;
+
+function loadDashboardData(date) {
+    fetch('/api/dashboard/summary?date=' + date)
+        .then(response => response.json())
+        .then(res => {
+            if (res.status === 'success') {
+                const data = res.data;
+                document.getElementById('totalChecks').innerText = data.summary.total;
+                document.getElementById('totalOk').innerText = data.summary.ok;
+                document.getElementById('totalNok').innerText = data.summary.nok;
+                document.getElementById('avgTime').innerText = data.summary.avg_time.toFixed(2);
+                updateChart(data.machines);
+                updateRecentTable(data.recent);
+            }
+        })
+        .catch(err => console.error('Dashboard fetch error:', err));
+}
+
+function updateChart(machines) {
+    const ctx = document.getElementById('machineChart').getContext('2d');
+    const labels = machines.map(m => m.machine_id);
+    const okData = machines.map(m => m.total_ok);
+    const nokData = machines.map(m => m.total_nok);
+
+    if (machineChart) machineChart.destroy();
+
+    machineChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [
+                { label: 'OK', data: okData, backgroundColor: '#198754' },
+                { label: 'NOK', data: nokData, backgroundColor: '#dc3545' }
+            ]
+        },
+        options: {
+            responsive: true,
+            scales: { x: { stacked: true }, y: { stacked: true } }
+        }
+    });
+}
+
+function updateRecentTable(recent) {
+    const tbody = document.querySelector('#recentTable tbody');
+    tbody.innerHTML = '';
+    recent.forEach(r => {
+        const tr = document.createElement('tr');
+        const status = r.checkpoint_ok == 1
+            ? '<span class="badge bg-success">OK</span>'
+            : '<span class="badge bg-danger">NOK</span>';
+        tr.innerHTML = `<td>${r.machine_id}</td><td>${r.checkpoint_no}</td><td>${status}</td>`;
+        tbody.appendChild(tr);
+    });
+}
+
+document.getElementById('dashboardDate').addEventListener('change', e => loadDashboardData(e.target.value));
+loadDashboardData(document.getElementById('dashboardDate').value);
+</script>
+</body>
+</html>

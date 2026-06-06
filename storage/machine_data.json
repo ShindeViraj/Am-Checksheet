@@ -1,0 +1,1543 @@
+{
+    "11_LD -MIG Welding (2)": {
+        "title": "Autonomous Maintenance (Daily) Check List",
+        "line_name": "Line: LD",
+        "machine_name": "Machine Name: MIG Welding",
+        "types_text": "Type: Safety (S) Poka-Yoke (Q) Daily PM (M)",
+        "clit_text": "CLIT:  C-Cleaning   L-Lubrication  I-Inspection  T-Tightening",
+        "col_headers": [
+            "S.No.",
+            "SQM",
+            "Check Point",
+            "Check point photos",
+            "Time\n(sec)",
+            "Spec. Type (A/V)",
+            "CLIT",
+            "How",
+            "Shift"
+        ],
+        "checkpoints": [
+            {
+                "s_no": "1",
+                "sqm": "S/R",
+                "check_point": "Ensure the work zone is free from cotton waste, hand gloves, and welding wire.\n\nStandard: Work area shall be free from cotton waste and unwanted materials.",
+                "time": "20",
+                "spec": "A",
+                "clit": "C",
+                "how": ""
+            },
+            {
+                "s_no": "2",
+                "sqm": "R",
+                "check_point": "A) Clean and Lubricate LHS & RHS slide movement.\n\nStandard: Slides shall be free from dust and move smoothly.",
+                "time": "20",
+                "spec": "A",
+                "clit": "C&L",
+                "how": ""
+            },
+            {
+                "s_no": "3",
+                "sqm": "S/R",
+                "check_point": "Check and ensure the emergency switch is functioning properly.\n\nStandard: Emergency switch shall be functional and not loose.",
+                "time": "10",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "4",
+                "sqm": "S/R",
+                "check_point": "Check two‑hand operation functioning (Anti‑Tie Down & Anti‑Repeat system).\n\nStandard: Two‑hand system shall be tightened and working properly.",
+                "time": "20",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "5",
+                "sqm": "S/R",
+                "check_point": "Check safety sensor operation and ensure it is not loose.\n\nStandard: Safety sensor shall be tightened and functioning properly.",
+                "time": "20",
+                "spec": "A",
+                "clit": "I&T",
+                "how": ""
+            },
+            {
+                "s_no": "6",
+                "sqm": "S/R",
+                "check_point": "Check the safety door operation (up & down movement).\n\n\nStandard: Safety door shall be in proper working condition.",
+                "time": "10",
+                "spec": "A",
+                "clit": "I&T",
+                "how": ""
+            },
+            {
+                "s_no": "7",
+                "sqm": "R",
+                "check_point": "Check the condition of all push buttons on the operating panel.\n\nStandard: Push buttons shall not be loose, broken, or missing and shall function correctly.",
+                "time": "20",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "8",
+                "sqm": "Q/R",
+                "check_point": "Check for any air leakage at tailstock clamping, valve bank, and safety door.\n\nStandard: If leakage is identified, raise a tag and mention the tag number.",
+                "time": "20",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "9",
+                "sqm": "R",
+                "check_point": "Check the torch condition.\n\nStandard:Torch shall have no looseness, leakage, burn marks",
+                "time": "20",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "10",
+                "sqm": "R",
+                "check_point": "Check the availability of CO₂ gas and verify flow rate.\n\nStandard: Gas flow shall be between 25–30 LPM.",
+                "time": "20",
+                "spec": "V",
+                "clit": "C&T",
+                "how": ""
+            },
+            {
+                "s_no": "11",
+                "sqm": "R",
+                "check_point": "Check and clean the feeder roller and gear condition.\n\nStandard: Feeder roller and gears shall be clean and free from damage.",
+                "time": "20",
+                "spec": "A",
+                "clit": "I&T",
+                "how": ""
+            },
+            {
+                "s_no": "12",
+                "sqm": "Q/R",
+                "check_point": "Check and verify the calibration due date of air pressure gauge and CO₂ pressure gauge.\n\nStandard: Calibration sticker shall be available and valid.",
+                "time": "10",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "13",
+                "sqm": "S/R",
+                "check_point": "Check the proper working of the fume exhauster.\n\nStandard: Fume exhauster shall be operational",
+                "time": "10",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "14",
+                "sqm": "S/R",
+                "check_point": "Ensure all electrical panels are in closed condition.\n\nStandard: Electrical panel doors shall remain closed at all times.",
+                "time": "10",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "15",
+                "sqm": "5S",
+                "check_point": "Make sure Deep Cleanig Activity, 5S Activity happening once in a week (Clean of Machine Surrounding)\n\nStandard- All Machine should be dust free, Leakage free, Clean without Finger Prints",
+                "time": "25 MIN",
+                "spec": "",
+                "clit": "C",
+                "how": ""
+            }
+        ]
+    },
+    "18_Z101 - Robo Welding (2)": {
+        "title": "Autonomous Maintenance (Daily) Check List",
+        "line_name": "Line: Z101",
+        "machine_name": "Machine Name: Robo Welding",
+        "types_text": "Type: Safety (S) Poka-Yoke (Q) Daily PM (M)",
+        "clit_text": "CLIT:  C-Cleaning   L-Lubrication  I-Inspection  T-Tightening",
+        "col_headers": [
+            "S.No.",
+            "SQM",
+            "Check Point",
+            "Check point photos",
+            "Time\n(sec)",
+            "Spec. Type (A/V)",
+            "CLIT",
+            "How",
+            "Shift"
+        ],
+        "checkpoints": [
+            {
+                "s_no": "1",
+                "sqm": "S/R",
+                "check_point": "Ensure the work zone is free from cotton waste, hand gloves, welding wire, and other unwanted materials.\n\nStandard: Area shall be free from cotton waste and unwanted materials.",
+                "time": "50",
+                "spec": "A",
+                "clit": "C",
+                "how": ""
+            },
+            {
+                "s_no": "2",
+                "sqm": "S/R",
+                "check_point": "Check and ensure the emergency switch is functioning properly.\n\nStandard: Emergency switch shall be functional and not loose.",
+                "time": "10",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "3",
+                "sqm": "S/R",
+                "check_point": "Check two-hand control operation (Anti-Tie Down & Anti-Repeat system).\n\nStandard: Two-hand control system shall be functioning properly.",
+                "time": "20",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "4",
+                "sqm": "S/R",
+                "check_point": "Check safety sensor operation and ensure it is not loose.\n\nStandard: Safety sensor shall be functional and Tighten.",
+                "time": "20",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "5",
+                "sqm": "S/R",
+                "check_point": "Check the safety door operation (up & down movement).\n\nStandard: Safety door shall be in proper working condition.",
+                "time": "10",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "6",
+                "sqm": "R",
+                "check_point": "Check the condition of all push buttons on the operating panel (no loose, broken, or missing buttons).\n\nStandard: All push buttons shall be Tighten and functioning properly.",
+                "time": "20",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "7",
+                "sqm": "Q/R",
+                "check_point": "Check for any air leakage at tailstock clamping and safety door.\n\nStandard: If leakage is found, raise a tag and mention the tag number.",
+                "time": "20",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "8",
+                "sqm": "R",
+                "check_point": "Check the torch condition.\n\nStandard: Torch shall have no looseness, leakage, or burn marks.",
+                "time": "20",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "9",
+                "sqm": "R",
+                "check_point": "Check the availability and flow of argon gas.\n\nStandard: Argon gas flow shall be between 15–30 LPM.",
+                "time": "20",
+                "spec": "V",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "10",
+                "sqm": "R",
+                "check_point": "Check the feeder roller and gear wheel condition of the wire feeder.\n\nStandard: Gear wheel teeth shall be free from damage.",
+                "time": "120",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "11",
+                "sqm": "S/R",
+                "check_point": "Check the working condition of the fume exhauster.\n\nStandard: Fume exhauster green indicator shall be ON.",
+                "time": "10",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "12",
+                "sqm": "S/R",
+                "check_point": "Ensure all electrical panels are in closed condition.\n\nStandard: Electrical panel doors shall always remain closed.",
+                "time": "10",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "13",
+                "sqm": "R",
+                "check_point": "Check and clean the laser displacement sensor glass.\n\nStandard: Sensor glass shall be clean and free from dust.",
+                "time": "10",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "14",
+                "sqm": "Q/R",
+                "check_point": "Check and verify the calibration due date sticker on air pressure gauge and CO₂ pressure gauge.\n\nStandard: Calibration sticker shall be available and valid.",
+                "time": "10",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "15",
+                "sqm": "5S",
+                "check_point": "Ensure deep cleaning and 5S activities are carried out once a week (machine surrounding area).\n\nStandard: All machine shall be dust-free, leakage-free, clean, and without finger prints.",
+                "time": "25 MIN",
+                "spec": "A",
+                "clit": "C",
+                "how": ""
+            }
+        ]
+    },
+    "22_Z101 - Schenk Balancing (2)": {
+        "title": "Autonomous Maintenance (Daily) Check List",
+        "line_name": "Line: Z101",
+        "machine_name": "Machine Name: Schenck Balancing",
+        "types_text": "Type: Safety (S) Poka-Yoke (Q) Daily PM (M)",
+        "clit_text": "CLIT:  C-Cleaning   L-Lubrication  I-Inspection  T-Tightening",
+        "col_headers": [
+            "S.No.",
+            "SQM",
+            "Check Point",
+            "Check point photos",
+            "Time\n(sec)",
+            "Spec. Type (A/V)",
+            "CLIT",
+            "How",
+            "Shift"
+        ],
+        "checkpoints": [
+            {
+                "s_no": "1",
+                "sqm": "S/R",
+                "check_point": "Ensure all electrical panels are in closed condition.\n\nStandard: Electrical panel doors shall always remain closed.",
+                "time": "10",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "2",
+                "sqm": "S/R",
+                "check_point": "Check and ensure the emergency switch is functioning properly.\n\nStandard: Emergency switch shall be functional and not loose.",
+                "time": "10",
+                "spec": "A",
+                "clit": "I&T",
+                "how": ""
+            },
+            {
+                "s_no": "3",
+                "sqm": "S/R",
+                "check_point": "Check all push buttons are in proper condition (no loose, broken, or missing buttons).\n\nStandard: Push buttons shall be secure and functioning properly.",
+                "time": "20",
+                "spec": "A",
+                "clit": "I&T",
+                "how": ""
+            },
+            {
+                "s_no": "4",
+                "sqm": "S",
+                "check_point": "Check the safety sensor is functioning properly and securely fitted.\n\nStandard: Safety sensor shall be Tighten and functioning properly.",
+                "time": "20",
+                "spec": "A",
+                "clit": "I&T",
+                "how": ""
+            },
+            {
+                "s_no": "5",
+                "sqm": "S/R",
+                "check_point": "Check two-hand clamping operation (Anti‑Tie Down & Anti‑Repeat system).\n\nStandard: Two-hand clamping system shall function correctly.",
+                "time": "20",
+                "spec": "A",
+                "clit": "I&T",
+                "how": ""
+            },
+            {
+                "s_no": "6",
+                "sqm": "S/R",
+                "check_point": "Verify that chuck clamping sensors (LH & RH) are working effectively.\n\nStandard: Sensors shall have no looseness, no damage, and shall function properly.",
+                "time": "20",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "7",
+                "sqm": "R",
+                "check_point": "Check for any air leakage in the system.\n\n\nStandard: If leakage is found, raise a tag and mention the tag number.",
+                "time": "20",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "8",
+                "sqm": "Q/R",
+                "check_point": "Ensure the chiller unit is working properly.\n\n\nStandard: Chiller shall be operational, green indicator ON, and free from leakages.",
+                "time": "10",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "9",
+                "sqm": "Q/R",
+                "check_point": "Check and verify the calibration due date of the air pressure gauge and Argon pressure gauge.\n\nStandard: Calibration sticker shall be available and valid.",
+                "time": "10",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "10",
+                "sqm": "5S",
+                "check_point": "Ensure deep cleaning and 5S activities are carried out once a week (machine and surrounding area).\n\nStandard: All machines shall be dust-free, leakage-free, clean, and free from fingerprints.",
+                "time": "25 MIN",
+                "spec": "A",
+                "clit": "C",
+                "how": ""
+            }
+        ]
+    },
+    "6_HD -MIG Welding (2)": {
+        "title": "Autonomous Maintenance (Daily) Check List",
+        "line_name": "Line: HD",
+        "machine_name": "Machine Name: MIG Welding",
+        "types_text": "Type: Safety (S) Poka-Yoke (Q) Daily PM (M)",
+        "clit_text": "CLIT:  C-Cleaning   L-Lubrication  I-Inspection  T-Tightening",
+        "col_headers": [
+            "S.No.",
+            "SQM",
+            "Check Point",
+            "Check point photos",
+            "Time\n(sec)",
+            "Spec. Type (A/V)",
+            "CLIT",
+            "How",
+            "Shift"
+        ],
+        "checkpoints": [
+            {
+                "s_no": "1",
+                "sqm": "S/R",
+                "check_point": "Ensure the work zone is free from cotton waste, hand gloves, welding wire, and spatter.\n\nStandard: Work area shall be free from cotton waste and unwanted materials.",
+                "time": "50",
+                "spec": "A",
+                "clit": "C",
+                "how": ""
+            },
+            {
+                "s_no": "2",
+                "sqm": "Q/R",
+                "check_point": "Check for any air leakage at tailstock clamping, valve bank, and safety door.\n\nStandard: If leakage is identified, raise a tag and mention the tag number.",
+                "time": "40",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "3",
+                "sqm": "R",
+                "check_point": "Check Rhs & Lhs torch neck assembly insulation for any wear and tear.\n\nStandard: Insulation shall have no wear or damage.",
+                "time": "20",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "4",
+                "sqm": "R",
+                "check_point": "Check and lubricate the tailstock slide.\n\n\nStandard: Tailstock slide shall be adequately lubricated",
+                "time": "20",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "5",
+                "sqm": "R",
+                "check_point": "Check two-hand operation functioning (Anti‑Tie Down & Anti‑Repeat system).\n\nStandard: Two-hand system shall be functioning properly.",
+                "time": "10",
+                "spec": "A",
+                "clit": "I&T",
+                "how": ""
+            },
+            {
+                "s_no": "6",
+                "sqm": "S/R",
+                "check_point": "Check the torch condition.\n\nStandard:Torch shall have no looseness, leakage, burn marks",
+                "time": "20",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "7",
+                "sqm": "S/R",
+                "check_point": "Check and ensure the emergency switch is functioning properly.\nStandard: Emergency switch shall be functional and not loose.",
+                "time": "10",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "8",
+                "sqm": "R",
+                "check_point": "Check safety sensor operation and ensure it is securely fitted.\n\nStandard: Safety sensor shall be Tightened and functioning properly.",
+                "time": "20",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "9",
+                "sqm": "R",
+                "check_point": "Check the condition of all push buttons on the operating panel.\n\nStandard: Push buttons shall not be loose, broken, or missing and shall function correctly.",
+                "time": "20",
+                "spec": "A",
+                "clit": "I&T",
+                "how": ""
+            },
+            {
+                "s_no": "10",
+                "sqm": "R",
+                "check_point": "Check and clean the feeder roller and gear condition.\n\nStandard: Feeder roller and gears shall be clean and free from damage.",
+                "time": "20",
+                "spec": "A",
+                "clit": "C&T",
+                "how": ""
+            },
+            {
+                "s_no": "11",
+                "sqm": "R",
+                "check_point": "Check the availability of CO₂ gas and verify flow rate.\n\nStandard: Gas flow shall be between 25–30 LPM.",
+                "time": "20",
+                "spec": "V",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "12",
+                "sqm": "S/R",
+                "check_point": "Ensure the cooling unit is working and check the coolant water level.\n\nStandard: Coolant level shall be above the green marked level.",
+                "time": "10",
+                "spec": "V",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "13",
+                "sqm": "S/R",
+                "check_point": "Ensure all electrical panels are in closed condition.\n\nStandard: Electrical panel doors shall remain closed at all times.",
+                "time": "10",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "14",
+                "sqm": "S/R",
+                "check_point": "Check the proper working of the fume exhauster.\n\nStandard: Fume exhauster shall be operational",
+                "time": "10",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "15",
+                "sqm": "Q/R",
+                "check_point": "Check and verify the calibration due date of air pressure gauge and CO₂ pressure gauge.\n\nStandard: Calibration sticker shall be available and valid.",
+                "time": "10",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "16",
+                "sqm": "S",
+                "check_point": "Check the condition of material handling secondary wire ropes.\n\nStandard: Wire ropes shall have no damage or cuts.",
+                "time": "20",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "17",
+                "sqm": "S",
+                "check_point": "Check and verify that material handling gripper bolts and nuts are properly tightened.\n\nStandard: Bolts and nuts shall be properly tightened.",
+                "time": "50",
+                "spec": "A",
+                "clit": "I&T",
+                "how": ""
+            },
+            {
+                "s_no": "18",
+                "sqm": "5S",
+                "check_point": "Ensure deep cleaning and 5S activities are carried out once a week (machine and surrounding area).\n\nStandard: All machines shall be dust-free, leakage-free, clean, and free from fingerprints.",
+                "time": "25 MIN",
+                "spec": "A",
+                "clit": "C",
+                "how": ""
+            }
+        ]
+    },
+    "8_HD -Abro Balancing(2)": {
+        "title": "Autonomous Maintenance (Daily) Check List",
+        "line_name": "Line: HD",
+        "machine_name": "Machine Name: Abro Balancing",
+        "types_text": "Type: Safety (S) Poka-Yoke (Q) Daily PM (M)",
+        "clit_text": "CLIT:  C-Cleaning   L-Lubrication  I-Inspection  T-Tightening",
+        "col_headers": [
+            "S.No.",
+            "SQM",
+            "Check Point",
+            "Check point photos",
+            "Time\n(sec)",
+            "Spec. Type (A/V)",
+            "CLIT",
+            "How",
+            "Shift"
+        ],
+        "checkpoints": [
+            {
+                "s_no": "1",
+                "sqm": "S/R",
+                "check_point": "Verify that the chuck clamping sensors (LH & RH) are working effectively.\n\nStandard: Sensors shall be securely tightened and functioning properly.",
+                "time": "20",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "2",
+                "sqm": "S/R",
+                "check_point": "Check the safety sensor is functioning correctly and is not loose.\n\nStandard: Safety sensor shall be Tightened and functioning properly.",
+                "time": "20",
+                "spec": "A",
+                "clit": "I&T",
+                "how": ""
+            },
+            {
+                "s_no": "3",
+                "sqm": "S/R",
+                "check_point": "Check the two‑hand clamping operation (Anti‑Tie Down & Anti‑Repeat system).\n\nStandard: Two‑hand clamping system shall be functioning properly.",
+                "time": "20",
+                "spec": "A",
+                "clit": "I&T",
+                "how": ""
+            },
+            {
+                "s_no": "4",
+                "sqm": "S/R",
+                "check_point": "Check the condition of all push buttons on the operating panel.\n\nStandard: Push buttons shall not be loose, broken, or missing and shall function correctly.",
+                "time": "20",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "5",
+                "sqm": "R",
+                "check_point": "A) Check projection pads (LH & RH) for cleanliness\nB) Ensure projection welding shoe bolts are properly tightened\n\nStandard: Projection pads shall be clean, and welding shoe bolts shall be securely tightened.",
+                "time": "60",
+                "spec": "A",
+                "clit": "I&T",
+                "how": ""
+            },
+            {
+                "s_no": "6",
+                "sqm": "Q/R",
+                "check_point": "Check projection welding pressure switch air pressure\n\nStandard: Projection welding air pressure shall be maintained at ≥ 4 kg/cm².",
+                "time": "20",
+                "spec": "V",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "7",
+                "sqm": "R",
+                "check_point": "Check for any air leakage in the system.\n\nStandard: If leakage is detected, raise a tag and mention the tag number.",
+                "time": "40",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "8",
+                "sqm": "S/R",
+                "check_point": "Ensure all electrical panels are in closed condition.\n\nStandard: Electrical panel doors shall always remain closed.",
+                "time": "10",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "9",
+                "sqm": "S/R",
+                "check_point": "Check and ensure the emergency switch is functioning properly.\n\nStandard: Emergency switch shall be functional and not loose.",
+                "time": "10",
+                "spec": "A",
+                "clit": "I&T",
+                "how": ""
+            },
+            {
+                "s_no": "10",
+                "sqm": "Q/R",
+                "check_point": "Check and verify the calibration due date on the air pressure gauge.\n\nStandard: Calibration sticker shall be available and valid.",
+                "time": "20",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "11",
+                "sqm": "S",
+                "check_point": "Check the condition of material handling secondary wire ropes.\n\nStandard: Wire ropes shall have no damage or cuts.",
+                "time": "20",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "12",
+                "sqm": "S",
+                "check_point": "Check and verify that material handling gripper bolts and nuts are properly tightened.\n\nStandard: Bolts and nuts shall be properly tightened.",
+                "time": "50",
+                "spec": "A",
+                "clit": "I&T",
+                "how": ""
+            },
+            {
+                "s_no": "11",
+                "sqm": "5S",
+                "check_point": "Make sure Deep Cleanig Activity, 5S Activity happening once in a week (Clean of Machine Surrounding)\n\nStandard- All Machine should be dust free, Leakage free, Clean without Finger Prints",
+                "time": "25 MIN",
+                "spec": "A",
+                "clit": "C",
+                "how": ""
+            }
+        ]
+    },
+    "8_HD -Schenk Balancing (2)": {
+        "title": "Autonomous Maintenance (Daily) Check List",
+        "line_name": "Line: HD",
+        "machine_name": "Machine Name: Schenck Balancing",
+        "types_text": "Type: Safety (S) Poka-Yoke (Q) Daily PM (M)",
+        "clit_text": "CLIT:  C-Cleaning   L-Lubrication  I-Inspection  T-Tightening",
+        "col_headers": [
+            "S.No.",
+            "SQM",
+            "Check Point",
+            "Check point photos",
+            "Time\n(sec)",
+            "Spec. Type (A/V)",
+            "CLIT",
+            "How",
+            "Shift"
+        ],
+        "checkpoints": [
+            {
+                "s_no": "1",
+                "sqm": "S/R",
+                "check_point": "Verify that the chuck clamping sensors (LH & RH) are working effectively.\n\nStandard: Sensors shall be securely tightened and functioning properly.",
+                "time": "20",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "2",
+                "sqm": "S/R",
+                "check_point": "Check the safety sensor is functioning correctly and is not loose.\n\nStandard: Safety sensor shall be Tightened and functioning properly.",
+                "time": "20",
+                "spec": "A",
+                "clit": "I&T",
+                "how": ""
+            },
+            {
+                "s_no": "3",
+                "sqm": "S/R",
+                "check_point": "Check the two‑hand clamping operation (Anti‑Tie Down & Anti‑Repeat system).\n\nStandard: Two‑hand clamping system shall be functioning properly.",
+                "time": "20",
+                "spec": "A",
+                "clit": "I&T",
+                "how": ""
+            },
+            {
+                "s_no": "4",
+                "sqm": "S/R",
+                "check_point": "Check the condition of all push buttons on the operating panel.\n\nStandard: Push buttons shall not be loose, broken, or missing and shall function correctly.",
+                "time": "20",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "5",
+                "sqm": "R",
+                "check_point": "A) Check projection pads (LH & RH) for cleanliness\nB) Ensure projection welding shoe bolts are properly tightened\nStandard: Projection pads shall be clean, and welding shoe bolts shall be securely tightened.",
+                "time": "60",
+                "spec": "A",
+                "clit": "I&T",
+                "how": ""
+            },
+            {
+                "s_no": "6",
+                "sqm": "Q/R",
+                "check_point": "Check projection welding pressure switch air pressure\n\nStandard: Projection welding air pressure shall be maintained at ≥ 4 kg/cm².",
+                "time": "20",
+                "spec": "V",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "7",
+                "sqm": "R",
+                "check_point": "Check for any air leakage in the system.\n\nStandard: If leakage is detected, raise a tag and mention the tag number.",
+                "time": "20",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "8",
+                "sqm": "Q/R",
+                "check_point": "Ensure the chiller unit is working properly.\n\nStandard: Chiller shall be operational, green indicator ON, and free from leakages.",
+                "time": "10",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "9",
+                "sqm": "S/R",
+                "check_point": "Check No abnormal sound come during Scissor Lift operation & Ensure Scissor Lift Down Operation with Dual Push Button.\n\nStandard: Free from abnormal sound & push button shall be functional and not loose.",
+                "time": "20",
+                "spec": "A",
+                "clit": "I&T",
+                "how": ""
+            },
+            {
+                "s_no": "10",
+                "sqm": "S",
+                "check_point": "Ensure all electrical panels are in closed condition.\n\nStandard: Electrical panel doors shall always remain closed.",
+                "time": "10",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "11",
+                "sqm": "S/R",
+                "check_point": "Check and ensure the emergency switch is functioning properly.\n\nStandard: Emergency switch shall be functional and not loose.",
+                "time": "10",
+                "spec": "A",
+                "clit": "I&T",
+                "how": ""
+            },
+            {
+                "s_no": "12",
+                "sqm": "Q/R",
+                "check_point": "Check and verify the calibration due date on the air pressure gauge.\nStandard: Calibration sticker shall be available and valid.",
+                "time": "20",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "13",
+                "sqm": "S",
+                "check_point": "Check the condition of material handling secondary wire ropes.\n\nStandard: Wire ropes shall have no damage or cuts.",
+                "time": "20",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "14",
+                "sqm": "S",
+                "check_point": "Check and verify that material handling gripper bolts and nuts are properly tightened.\n\nStandard: Bolts and nuts shall be properly tightened.",
+                "time": "50",
+                "spec": "A",
+                "clit": "I&T",
+                "how": ""
+            },
+            {
+                "s_no": "15",
+                "sqm": "5S",
+                "check_point": "Make sure Deep Cleanig Activity, 5S Activity happening once in a week (Clean of Machine Surrounding)\n\nStandard- All Machine should be dust free, Leakage free, Clean without Finger Prints",
+                "time": "25 MIN",
+                "spec": "A",
+                "clit": "C",
+                "how": ""
+            }
+        ]
+    },
+    "8_LD -Schenck Balancing(2)": {
+        "title": "Autonomous Maintenance (Daily) Check List",
+        "line_name": "Line: LD",
+        "machine_name": "Machine Name: Abro Balancing",
+        "types_text": "Type: Safety (S) Poka-Yoke (Q) Daily PM (M)",
+        "clit_text": "CLIT:  C-Cleaning   L-Lubrication  I-Inspection  T-Tightening",
+        "col_headers": [
+            "S.No.",
+            "SQM",
+            "Check Point",
+            "Check point photos",
+            "Time\n(sec)",
+            "Spec. Type (A/V)",
+            "CLIT",
+            "How",
+            "Shift"
+        ],
+        "checkpoints": [
+            {
+                "s_no": "1",
+                "sqm": "S/R",
+                "check_point": "Verify that the chuck clamping sensors (LH & RH) are working effectively.\n\nStandard: Sensors shall be securely tightened and functioning properly.",
+                "time": "20",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "2",
+                "sqm": "S/R",
+                "check_point": "Check the safety sensor is functioning correctly and is not loose.\n\nStandard: Safety sensor shall be Tightened and functioning properly.",
+                "time": "20",
+                "spec": "A",
+                "clit": "I&T",
+                "how": ""
+            },
+            {
+                "s_no": "3",
+                "sqm": "S/R",
+                "check_point": "Check the two‑hand clamping operation (Anti‑Tie Down & Anti‑Repeat system).\n\nStandard: Two‑hand clamping system shall be functioning properly.",
+                "time": "20",
+                "spec": "A",
+                "clit": "I&T",
+                "how": ""
+            },
+            {
+                "s_no": "4",
+                "sqm": "S/R",
+                "check_point": "Check the condition of all push buttons on the operating panel.\n\nStandard: Push buttons shall not be loose, broken, or missing and shall function correctly.",
+                "time": "20",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "5",
+                "sqm": "R",
+                "check_point": "A) Check projection pads (LH & RH) for cleanliness\nB) Ensure projection welding shoe bolts are properly tightened\nStandard: Projection pads shall be clean, and welding shoe bolts shall be securely tightened.",
+                "time": "60",
+                "spec": "A",
+                "clit": "I&T",
+                "how": ""
+            },
+            {
+                "s_no": "6",
+                "sqm": "Q/R",
+                "check_point": "Check projection welding pressure switch air pressure\n\nStandard: Projection welding air pressure shall be maintained at ≥ 4 kg/cm².",
+                "time": "20",
+                "spec": "V",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "7",
+                "sqm": "R",
+                "check_point": "Check for any air leakage in the system.\n\nStandard: If leakage is detected, raise a tag and mention the tag number.",
+                "time": "40",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "8",
+                "sqm": "R",
+                "check_point": "Check No abnormal sound come during Scissor Lift operation & Ensure Scissor Lift Down Operation with Dual Push Button.\n\nStandard: Free from abnormal sound & push button shall be functional and not loose.",
+                "time": "20",
+                "spec": "A",
+                "clit": "I&T",
+                "how": ""
+            },
+            {
+                "s_no": "9",
+                "sqm": "S/R",
+                "check_point": "Ensure all electrical panels are in closed condition.\n\nStandard: Electrical panel doors shall always remain closed.",
+                "time": "10",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "10",
+                "sqm": "S/R",
+                "check_point": "Check and ensure the emergency switch is functioning properly.\n\nStandard: Emergency switch shall be functional and not loose.",
+                "time": "10",
+                "spec": "A",
+                "clit": "I&T",
+                "how": ""
+            },
+            {
+                "s_no": "11",
+                "sqm": "Q/R",
+                "check_point": "Check and verify the calibration due date on the air pressure gauge.\nStandard: Calibration sticker shall be available and valid.",
+                "time": "20",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "12",
+                "sqm": "S",
+                "check_point": "Check the condition of material handling secondary wire ropes.\n\nStandard: Wire ropes shall have no damage or cuts.",
+                "time": "20",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "13",
+                "sqm": "S",
+                "check_point": "Check and verify that material handling gripper bolts and nuts are properly tightened.\n\nStandard: Bolts and nuts shall be properly tightened.",
+                "time": "50",
+                "spec": "A",
+                "clit": "I&T",
+                "how": ""
+            },
+            {
+                "s_no": "14",
+                "sqm": "5S",
+                "check_point": "Make sure Deep Cleanig Activity, 5S Activity happening once in a week (Clean of Machine Surrounding)\n\nStandard- All Machine should be dust free, Leakage free, Clean without Finger Prints",
+                "time": "25 MIN",
+                "spec": "A",
+                "clit": "C",
+                "how": ""
+            }
+        ]
+    },
+    "8_MD -Abro Balancing(2)": {
+        "title": "Autonomous Maintenance (Daily) Check List",
+        "line_name": "Line: MD",
+        "machine_name": "Machine Name: Abro Balancing",
+        "types_text": "Type: Safety (S) Poka-Yoke (Q) Daily PM (M)",
+        "clit_text": "CLIT:  C-Cleaning   L-Lubrication  I-Inspection  T-Tightening",
+        "col_headers": [
+            "S.No.",
+            "SQM",
+            "Check Point",
+            "Check point photos",
+            "Time\n(sec)",
+            "Spec. Type (A/V)",
+            "CLIT",
+            "How",
+            "Shift"
+        ],
+        "checkpoints": [
+            {
+                "s_no": "1",
+                "sqm": "S/R",
+                "check_point": "Verify that the chuck clamping sensors (LH & RH) are working effectively.\n\nStandard: Sensors shall be securely tightened and functioning properly.",
+                "time": "10",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "2",
+                "sqm": "S/R",
+                "check_point": "Check the safety sensor is functioning correctly and is not loose.\n\nStandard: Safety sensor shall be Tightened and functioning properly.",
+                "time": "20",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "3",
+                "sqm": "S/R",
+                "check_point": "Check the two‑hand clamping operation (Anti‑Tie Down & Anti‑Repeat system).\n\nStandard: Two‑hand clamping system shall be functioning properly.",
+                "time": "10",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "4",
+                "sqm": "S/R",
+                "check_point": "Check the condition of all push buttons on the operating panel.\n\nStandard: Push buttons shall not be loose, broken, or missing and shall function correctly.",
+                "time": "20",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "5",
+                "sqm": "R",
+                "check_point": "A) Check projection pads (LH & RH) for cleanliness\nB) Ensure projection welding shoe bolts are properly tightened\nStandard: Projection pads shall be clean, and welding shoe bolts shall be securely tightened.",
+                "time": "80",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "6",
+                "sqm": "S/R",
+                "check_point": "Check No abnormal sound come during Scissor Lift operation & Ensure Scissor Lift Down Operation with Dual Push Button.\n\nStandard: Free from abnormal sound & push button shall be functional and not loose.",
+                "time": "20",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "7",
+                "sqm": "R",
+                "check_point": "Check for any air leakage in the system.\n\nStandard: If leakage is detected, raise a tag and mention the tag number.",
+                "time": "40",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "8",
+                "sqm": "S/R",
+                "check_point": "Ensure all electrical panels are in closed condition.\n\nStandard: Electrical panel doors shall always remain closed.",
+                "time": "20",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "9",
+                "sqm": "S/R",
+                "check_point": "Check and ensure the emergency switch is functioning properly.\n\nStandard: Emergency switch shall be functional and not loose.",
+                "time": "10",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "10",
+                "sqm": "Q/R",
+                "check_point": "Check and verify the calibration due date on the air pressure gauge.\n\nStandard: Calibration sticker shall be available and valid.",
+                "time": "10",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "11",
+                "sqm": "S",
+                "check_point": "Check the condition of material handling secondary wire ropes.\n\nStandard: Wire ropes shall have no damage or cuts.",
+                "time": "20",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "12",
+                "sqm": "S",
+                "check_point": "Check and verify that material handling gripper bolts and nuts are properly tightened.\n\nStandard: Bolts and nuts shall be properly tightened.",
+                "time": "50",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "13",
+                "sqm": "5S",
+                "check_point": "Make sure Deep Cleanig Activity, 5S Activity happening once in a week (Clean of Machine Surrounding)\n\nStandard- All Machine should be dust free, Leakage free, Clean without Finger Prints",
+                "time": "25 MIN",
+                "spec": "A",
+                "clit": "C",
+                "how": ""
+            }
+        ]
+    },
+    "LINE3 -MIG Welding-2 (2)": {
+        "title": "Autonomous Maintenance (Daily) Check List",
+        "line_name": "Line: MD",
+        "machine_name": "Machine Name: MIG Welding-2",
+        "types_text": "Type: Safety (S) Poka-Yoke (Q) Daily PM (M)",
+        "clit_text": "CLIT:  C-Cleaning   L-Lubrication  I-Inspection  T-Tightening",
+        "col_headers": [
+            "S.No.",
+            "SQM",
+            "Check Point",
+            "Check point photos",
+            "Time\n(sec)",
+            "Spec. Type (A/V)",
+            "CLIT",
+            "How",
+            "Shift"
+        ],
+        "checkpoints": [
+            {
+                "s_no": "1",
+                "sqm": "S/R",
+                "check_point": "Ensure the work zone is free from cotton waste, hand gloves, welding wire, and spatter.\n\nStandard: Work area shall be free from cotton waste and unwanted materials.",
+                "time": "50",
+                "spec": "A",
+                "clit": "C",
+                "how": ""
+            },
+            {
+                "s_no": "2",
+                "sqm": "Q/R",
+                "check_point": "Check for any air leakage at tailstock clamping, valve bank, and safety door.\n\nStandard: If leakage is identified, raise a tag and mention the tag number.",
+                "time": "40",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "3",
+                "sqm": "R",
+                "check_point": "Check Rhs & Lhs torch neck assembly insulation for any wear and tear.\n\nStandard: Insulation shall have no wear or damage.",
+                "time": "20",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "4",
+                "sqm": "R",
+                "check_point": "Check the torch condition.\n\nStandard:\nTorch shall have no looseness, leakage, burn marks",
+                "time": "20",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "5",
+                "sqm": "R",
+                "check_point": "Check two-hand operation functioning (Anti‑Tie Down & Anti‑Repeat system).\n\nStandard: Two-hand system shall be functioning properly.",
+                "time": "10",
+                "spec": "A",
+                "clit": "I&T",
+                "how": ""
+            },
+            {
+                "s_no": "6",
+                "sqm": "R",
+                "check_point": "Check and lubricate the tailstock slide.\n\n\nStandard: Tailstock slide shall be adequately lubricated",
+                "time": "20",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "7",
+                "sqm": "S/R",
+                "check_point": "Check and ensure the emergency switch is functioning properly.\nStandard: Emergency switch shall be functional and not loose.",
+                "time": "10",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "8",
+                "sqm": "R",
+                "check_point": "Check safety sensor operation and ensure it is securely fitted.\n\nStandard: Safety sensor shall be Tightened and functioning properly.",
+                "time": "20",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "9",
+                "sqm": "R",
+                "check_point": "Check the condition of all push buttons on the operating panel.\n\nStandard: Push buttons shall not be loose, broken, or missing and shall function correctly.",
+                "time": "20",
+                "spec": "A",
+                "clit": "I&T",
+                "how": ""
+            },
+            {
+                "s_no": "10",
+                "sqm": "R",
+                "check_point": "Check and clean the feeder roller and gear condition.\n\nStandard: Feeder roller and gears shall be clean and free from damage.",
+                "time": "20",
+                "spec": "A",
+                "clit": "C&T",
+                "how": ""
+            },
+            {
+                "s_no": "11",
+                "sqm": "R",
+                "check_point": "Check the availability of CO₂ gas and verify flow rate.\n\nStandard: Gas flow shall be between 25–30 LPM.",
+                "time": "20",
+                "spec": "V",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "12",
+                "sqm": "S/R",
+                "check_point": "Ensure the cooling unit is working and check the coolant water level.\n\nStandard: Coolant level shall be above the green marked level.",
+                "time": "10",
+                "spec": "V",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "13",
+                "sqm": "S/R",
+                "check_point": "Ensure all electrical panels are in closed condition.\n\nStandard: Electrical panel doors shall remain closed at all times.",
+                "time": "10",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "14",
+                "sqm": "S/R",
+                "check_point": "Check the proper working of the fume exhauster.\n\nStandard: Fume exhauster shall be operational",
+                "time": "10",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "15",
+                "sqm": "Q/R",
+                "check_point": "Check and verify the calibration due date of air pressure gauge and CO₂ pressure gauge.\n\nStandard: Calibration sticker shall be available and valid.",
+                "time": "10",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "16",
+                "sqm": "S",
+                "check_point": "Check the condition of material handling secondary wire ropes.\n\nStandard: Wire ropes shall have no damage or cuts.",
+                "time": "20",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "17",
+                "sqm": "S",
+                "check_point": "Check and verify that material handling gripper bolts and nuts are properly tightened.\n\nStandard: Bolts and nuts shall be properly tightened.",
+                "time": "50",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "18",
+                "sqm": "5S",
+                "check_point": "Ensure deep cleaning and 5S activities are carried out once a week (machine and surrounding area).\n\nStandard: All machines shall be dust-free, leakage-free, clean, and free from fingerprints.",
+                "time": "25 MIN",
+                "spec": "A",
+                "clit": "C",
+                "how": ""
+            }
+        ]
+    },
+    "MD -MIG Welding-1 (2)": {
+        "title": "Autonomous Maintenance (Daily) Check List",
+        "line_name": "Line: MD",
+        "machine_name": "Machine Name: MIG Welding-1",
+        "types_text": "Type: Safety (S) Poka-Yoke (Q) Daily PM (M)",
+        "clit_text": "CLIT:  C-Cleaning   L-Lubrication  I-Inspection  T-Tightening",
+        "col_headers": [
+            "S.No.",
+            "SQM",
+            "Check Point",
+            "Check point photos",
+            "Time\n(sec)",
+            "Spec. Type (A/V)",
+            "CLIT",
+            "How",
+            "Shift"
+        ],
+        "checkpoints": [
+            {
+                "s_no": "1",
+                "sqm": "S/R",
+                "check_point": "Ensure the work zone is free from cotton waste, hand gloves, welding wire, and spatter.\n\nStandard: Work area shall be free from cotton waste and unwanted materials.",
+                "time": "50",
+                "spec": "A",
+                "clit": "C",
+                "how": ""
+            },
+            {
+                "s_no": "2",
+                "sqm": "Q/R",
+                "check_point": "Check for any air leakage at tailstock clamping, valve bank, and safety door.\n\nStandard: If leakage is identified, raise a tag and mention the tag number.",
+                "time": "40",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "3",
+                "sqm": "R",
+                "check_point": "Check Rhs & Lhs torch neck assembly insulation for any wear and tear.\n\nStandard: Insulation shall have no wear or damage.",
+                "time": "20",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "4",
+                "sqm": "R",
+                "check_point": "Check the torch condition.\n\nStandard:\nTorch shall have no looseness, leakage, burn marks",
+                "time": "20",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "5",
+                "sqm": "R",
+                "check_point": "Check two-hand operation functioning (Anti‑Tie Down & Anti‑Repeat system).\n\nStandard: Two-hand system shall be functioning properly.",
+                "time": "10",
+                "spec": "A",
+                "clit": "I&T",
+                "how": ""
+            },
+            {
+                "s_no": "6",
+                "sqm": "R",
+                "check_point": "Check and lubricate the tailstock slide.\n\nStandard: Tailstock slide shall be adequately lubricated",
+                "time": "20",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "7",
+                "sqm": "S/R",
+                "check_point": "Check and ensure the emergency switch is functioning properly.\nStandard: Emergency switch shall be functional and not loose.",
+                "time": "10",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "8",
+                "sqm": "R",
+                "check_point": "Check safety sensor operation and ensure it is securely fitted.\n\nStandard: Safety sensor shall be Tightened and functioning properly.",
+                "time": "20",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "9",
+                "sqm": "R",
+                "check_point": "Check the condition of all push buttons on the operating panel.\n\nStandard: Push buttons shall not be loose, broken, or missing and shall function correctly.",
+                "time": "20",
+                "spec": "A",
+                "clit": "I&T",
+                "how": ""
+            },
+            {
+                "s_no": "10",
+                "sqm": "R",
+                "check_point": "Check and clean the feeder roller and gear condition.\n\nStandard: Feeder roller and gears shall be clean and free from damage.",
+                "time": "20",
+                "spec": "A",
+                "clit": "C&T",
+                "how": ""
+            },
+            {
+                "s_no": "11",
+                "sqm": "R",
+                "check_point": "Check the availability of CO₂ gas and verify flow rate.\n\nStandard: Gas flow shall be between 25–30 LPM.",
+                "time": "20",
+                "spec": "V",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "12",
+                "sqm": "S/R",
+                "check_point": "Ensure the cooling unit is working and check the coolant water level.\n\nStandard: Coolant level shall be above the green marked level.",
+                "time": "10",
+                "spec": "V",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "13",
+                "sqm": "S/R",
+                "check_point": "Ensure all electrical panels are in closed condition.\n\nStandard: Electrical panel doors shall remain closed at all times.",
+                "time": "10",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "14",
+                "sqm": "S/R",
+                "check_point": "Check the proper working of the fume exhauster.\n\nStandard: Fume exhauster shall be operational",
+                "time": "10",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "15",
+                "sqm": "Q/R",
+                "check_point": "Check and verify the calibration due date of air pressure gauge and CO₂ pressure gauge.\n\nStandard: Calibration sticker shall be available and valid.",
+                "time": "10",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "16",
+                "sqm": "S",
+                "check_point": "Check the condition of material handling secondary wire ropes.\n\nStandard: Wire ropes shall have no damage or cuts.",
+                "time": "20",
+                "spec": "A",
+                "clit": "I",
+                "how": ""
+            },
+            {
+                "s_no": "17",
+                "sqm": "S",
+                "check_point": "Check and verify that material handling gripper bolts and nuts are properly tightened.\n\nStandard: Bolts and nuts shall be properly tightened.",
+                "time": "50",
+                "spec": "A",
+                "clit": "I&T",
+                "how": ""
+            },
+            {
+                "s_no": "18",
+                "sqm": "5S",
+                "check_point": "Ensure deep cleaning and 5S activities are carried out once a week (machine and surrounding area).\n\nStandard: All machines shall be dust-free, leakage-free, clean, and free from fingerprints.",
+                "time": "25 MIN",
+                "spec": "A",
+                "clit": "C",
+                "how": ""
+            }
+        ]
+    }
+}

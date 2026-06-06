@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.env
+database/tpm_system.db
+.stitch/
+storage/reports/
+storage/templates/
+*.xlsx

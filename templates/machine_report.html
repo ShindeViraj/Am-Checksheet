@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TPM - Machine Reports</title>
+    <link rel="stylesheet" href="/static/bootstrap.min.css">
+    <style>
+        body { background-color: #f8f9fa; }
+        .card { box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 20px; }
+        .sidebar { background-color: #343a40; min-height: 100vh; color: white; padding-top: 20px; }
+        .sidebar a { color: #adb5bd; text-decoration: none; padding: 10px 20px; display: block; }
+        .sidebar a:hover, .sidebar a.active { background-color: #495057; color: white; }
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-2 d-none d-md-block sidebar">
+            <div class="sidebar-sticky">
+                <h5 class="px-3">TPM System</h5>
+                <ul class="nav flex-column mt-4">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/machine_report">Machine Reports</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <main role="main" class="col-md-10 ml-sm-auto px-4 pt-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+                <h1 class="h2">Machine Reports</h1>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <form id="reportForm" class="row g-3">
+                        <div class="col-md-3">
+                            <label class="form-label">Select Machine</label>
+                            <select class="form-select" id="machineSelect">
+                                <option value="" disabled selected>-- Select Machine --</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label class="form-label">Report Type</label>
+                            <select class="form-select" id="reportType" onchange="toggleReportType()">
+                                <option value="monthly">Monthly</option>
+                                <option value="custom">Custom Range</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2" id="monthDiv">
+                            <label class="form-label">Select Month</label>
+                            <input type="month" class="form-control" id="reportMonth" value="{{ today[:7] }}">
+                        </div>
+                        <div class="col-md-2" id="startDiv" style="display:none;">
+                            <label class="form-label">Start Date</label>
+                            <input type="date" class="form-control" id="startDate" value="{{ week_ago }}">
+                        </div>
+                        <div class="col-md-2" id="endDiv" style="display:none;">
+                            <label class="form-label">End Date</label>
+                            <input type="date" class="form-control" id="endDate" value="{{ today }}">
+                        </div>
+                        <div class="col-md-3 d-flex align-items-end gap-2">
+                            <button type="button" class="btn btn-primary" onclick="loadReport()">View Report</button>
+                            <button type="button" class="btn btn-success" onclick="downloadExcel()">Export Excel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">Report Preview</div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="reportTable">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Shift</th>
+                                    <th>Machine</th>
+                                    <th>Total Checks</th>
+                                    <th>OK</th>
+                                    <th>NOK</th>
+                                    <th>Start Time</th>
+                                    <th>End Time</th>
+                                    <th>Time Taken (Mins)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td colspan="9" class="text-center">Select filters and click View Report</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<script src="/static/bootstrap.bundle.min.js"></script>
+<script>
+// Load machines list on startup
+fetch('/api/reports/machines_list')
+    .then(r => {
+        console.log('Machines API status:', r.status);
+        return r.json();
+    })
+    .then(res => {
+        console.log('Machines API response:', res);
+        if (res.status === 'success') {
+            const select = document.getElementById('machineSelect');
+            res.data.forEach(m => {
+                const opt = document.createElement('option');
+                opt.value = m;
+                opt.innerText = m;
+                select.appendChild(opt);
+            });
+        } else {
+            console.error('Machines API error:', res.message);
+        }
+    })
+    .catch(err => console.error('Failed to load machines:', err));
+
+function toggleReportType() {
+    const type = document.getElementById('reportType').value;
+    if (type === 'monthly') {
+        document.getElementById('monthDiv').style.display = 'block';
+        document.getElementById('startDiv').style.display = 'none';
+        document.getElementById('endDiv').style.display = 'none';
+    } else {
+        document.getElementById('monthDiv').style.display = 'none';
+        document.getElementById('startDiv').style.display = 'block';
+        document.getElementById('endDiv').style.display = 'block';
+    }
+}
+
+function getDates() {
+    const type = document.getElementById('reportType').value;
+    let startDate, endDate;
+    if (type === 'monthly') {
+        const monthVal = document.getElementById('reportMonth').value; // YYYY-MM
+        if (!monthVal) { alert("Please select a month."); return null; }
+        startDate = monthVal + '-01';
+        const [y, m] = monthVal.split('-');
+        const lastDay = new Date(y, m, 0).getDate();
+        endDate = `${y}-${m}-${lastDay}`;
+    } else {
+        startDate = document.getElementById('startDate').value;
+        endDate = document.getElementById('endDate').value;
+        if (!startDate || !endDate) { alert("Please select start and end dates."); return null; }
+        if (new Date(endDate) - new Date(startDate) > 31 * 24 * 60 * 60 * 1000) {
+            alert("Custom range cannot be more than 31 days.");
+            return null;
+        }
+    }
+    return { startDate, endDate, reportType: type };
+}
+
+function loadReport() {
+    const machine = document.getElementById('machineSelect').value;
+    if (!machine) {
+        alert("Please select a machine.");
+        return;
+    }
+
+    const dates = getDates();
+    if (!dates) return;
+
+    const tbody = document.querySelector('#reportTable tbody');
+    tbody.innerHTML = '<tr><td colspan="9" class="text-center">Loading...</td></tr>';
+
+    fetch(`/api/reports/machine?machine_id=${encodeURIComponent(machine)}&start_date=${dates.startDate}&end_date=${dates.endDate}`)
+        .then(r => r.json())
+        .then(res => {
+            if (res.status === 'success') {
+                tbody.innerHTML = '';
+                if (res.data.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="9" class="text-center">No data found</td></tr>';
+                    return;
+                }
+
+                let shiftData = {};
+                res.data.forEach(row => {
+                    const dtStr = row.start_time.replace(' ', 'T');
+                    const dt = new Date(dtStr);
+                    const mins = dt.getHours() * 60 + dt.getMinutes();
+                    
+                    let shift, reportDt;
+                    if (mins >= 420 && mins < 930) {
+                        shift = 'A';
+                        reportDt = dt;
+                    } else if (mins >= 930 && mins < 1440) {
+                        shift = 'B';
+                        reportDt = dt;
+                    } else {
+                        shift = 'C';
+                        reportDt = new Date(dt.getTime() - 24*60*60*1000); // previous day
+                    }
+                    
+                    const y = reportDt.getFullYear();
+                    const m = String(reportDt.getMonth() + 1).padStart(2, '0');
+                    const d = String(reportDt.getDate()).padStart(2, '0');
+                    const dateStr = `${y}-${m}-${d}`;
+                    
+                    const key = `${dateStr}_${shift}`;
+                    if (!shiftData[key]) shiftData[key] = { date: dateStr, shift: shift, checks: [] };
+                    shiftData[key].checks.push(row);
+                });
+
+                Object.keys(shiftData).sort().forEach(key => {
+                    const data = shiftData[key];
+                    const checks = data.checks;
+                    let ok = 0, nok = 0, firstStart = null, lastEnd = null;
+
+                    checks.forEach(c => {
+                        if (c.checkpoint_ok == 1) ok++;
+                        if (c.checkpoint_not_ok == 1) nok++;
+                        if (!firstStart || new Date(c.start_time.replace(' ', 'T')) < new Date(firstStart.replace(' ', 'T'))) firstStart = c.start_time;
+                        if (!lastEnd || new Date(c.end_time.replace(' ', 'T')) > new Date(lastEnd.replace(' ', 'T'))) lastEnd = c.end_time;
+                    });
+
+                    let totalMins = 0;
+                    if (firstStart && lastEnd) {
+                         totalMins = ((new Date(lastEnd.replace(' ', 'T')) - new Date(firstStart.replace(' ', 'T'))) / 60000).toFixed(2);
+                    }
+
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td>${data.date}</td>
+                        <td>${data.shift}</td>
+                        <td>${machine}</td>
+                        <td>${checks.length}</td>
+                        <td>${ok}</td>
+                        <td>${nok}</td>
+                        <td>${firstStart || '-'}</td>
+                        <td>${lastEnd || '-'}</td>
+                        <td>${totalMins}</td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+            } else {
+                tbody.innerHTML = `<tr><td colspan="9" class="text-danger text-center">Error: ${res.message}</td></tr>`;
+            }
+        })
+        .catch(err => {
+            tbody.innerHTML = `<tr><td colspan="9" class="text-danger text-center">Fetch error: ${err}</td></tr>`;
+        });
+}
+
+function downloadExcel() {
+    const machine = document.getElementById('machineSelect').value;
+    if (!machine) {
+        alert("Please select a machine.");
+        return;
+    }
+
+    const dates = getDates();
+    if (!dates) return;
+
+    window.location.href = `/api/export/excel?machine_id=${encodeURIComponent(machine)}&start_date=${dates.startDate}&end_date=${dates.endDate}&report_type=${dates.reportType}`;
+}
+</script>
+</body>
+</html>
