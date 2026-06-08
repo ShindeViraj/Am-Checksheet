@@ -322,19 +322,31 @@ Requires immediate attention
     }
 
     // Load machines list for filter
-    fetch('/api/reports/machines_list')
-        .then(res => res.json())
-        .then(res => {
-            if(res.status === 'success'){
-                const sel = document.getElementById('machineFilter');
-                res.data.forEach(m => {
-                    const opt = document.createElement('option');
-                    opt.value = m;
-                    opt.innerText = m;
-                    sel.appendChild(opt);
-                });
-            }
-        });
+    function loadMachinesList() {
+        fetch('/api/reports/machines_list')
+            .then(res => res.json())
+            .then(res => {
+                if(res.status === 'success'){
+                    const sel = document.getElementById('machineFilter');
+                    const currentVal = sel.value;
+                    sel.innerHTML = '<option value="">All Machines</option>';
+                    res.data.forEach(m => {
+                        const opt = document.createElement('option');
+                        opt.value = m;
+                        opt.innerText = m;
+                        sel.appendChild(opt);
+                    });
+                    if (res.data.includes(currentVal)) {
+                        sel.value = currentVal;
+                    }
+                }
+            });
+    }
+
+    loadMachinesList();
+    
+    // Auto-refresh machines list every 30 seconds
+    setInterval(loadMachinesList, 30000);
 
     document.getElementById('machineFilter').addEventListener('change', e => loadDashboardData(document.getElementById('dashboardDate').value));
 
@@ -455,6 +467,11 @@ Requires immediate attention
     
     document.getElementById('dashboardDate').addEventListener('change', e => loadDashboardData(e.target.value));
     loadDashboardData(document.getElementById('dashboardDate').value);
+    
+    // Auto-refresh dashboard data every 15 seconds
+    setInterval(() => {
+        loadDashboardData(document.getElementById('dashboardDate').value);
+    }, 15000);
     </script>
     </body>
     </html>

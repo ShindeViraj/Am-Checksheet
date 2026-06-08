@@ -304,27 +304,32 @@
 
         <script>
         
-// Load machines list on startup
-fetch('/api/reports/machines_list')
-    .then(r => {
-        console.log('Machines API status:', r.status);
-        return r.json();
-    })
-    .then(res => {
-        console.log('Machines API response:', res);
-        if (res.status === 'success') {
-            const select = document.getElementById('machineSelect');
-            res.data.forEach(m => {
-                const opt = document.createElement('option');
-                opt.value = m;
-                opt.innerText = m;
-                select.appendChild(opt);
-            });
-        } else {
-            console.error('Machines API error:', res.message);
-        }
-    })
-    .catch(err => console.error('Failed to load machines:', err));
+// Load machines list
+function loadMachinesList() {
+    fetch('/api/reports/machines_list')
+        .then(r => r.json())
+        .then(res => {
+            if (res.status === 'success') {
+                const select = document.getElementById('machineSelect');
+                const currentVal = select.value;
+                select.innerHTML = '<option value="" disabled selected>Select Machine...</option>';
+                res.data.forEach(m => {
+                    const opt = document.createElement('option');
+                    opt.value = m;
+                    opt.innerText = m;
+                    select.appendChild(opt);
+                });
+                if (res.data.includes(currentVal)) {
+                    select.value = currentVal;
+                }
+            }
+        })
+        .catch(err => console.error('Failed to load machines:', err));
+}
+
+loadMachinesList();
+// Auto-refresh machines list every 30 seconds
+setInterval(loadMachinesList, 30000);
 
 function toggleReportType() {
     const type = document.getElementById('reportType').value;
