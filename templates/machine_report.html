@@ -395,26 +395,8 @@ function loadReport() {
 
                 let shiftData = {};
                 res.data.forEach(row => {
-                    const dtStr = row.start_time.replace(' ', 'T');
-                    const dt = new Date(dtStr);
-                    const mins = dt.getHours() * 60 + dt.getMinutes();
-                    
-                    let shift, reportDt;
-                    if (mins >= 420 && mins < 930) {
-                        shift = 'A';
-                        reportDt = dt;
-                    } else if (mins >= 930 && mins < 1440) {
-                        shift = 'B';
-                        reportDt = dt;
-                    } else {
-                        shift = 'C';
-                        reportDt = new Date(dt.getTime() - 24*60*60*1000); // previous day
-                    }
-                    
-                    const y = reportDt.getFullYear();
-                    const m = String(reportDt.getMonth() + 1).padStart(2, '0');
-                    const d = String(reportDt.getDate()).padStart(2, '0');
-                    const dateStr = `${y}-${m}-${d}`;
+                    const shift = row.shift;
+                    const dateStr = row.logical_date;
                     
                     const key = `${dateStr}_${shift}`;
                     if (!shiftData[key]) shiftData[key] = { date: dateStr, shift: shift, checks: [] };

@@ -230,7 +230,14 @@ def api_machine_report():
         conn = get_db()
         with conn.cursor() as cur:
             cur.execute("""
-                SELECT * FROM checkpoints
+                SELECT *,
+                       DATE(DATE_SUB(start_time, INTERVAL 7 HOUR)) as logical_date,
+                       CASE 
+                           WHEN TIME(start_time) >= '07:00:00' AND TIME(start_time) < '15:30:00' THEN 'A'
+                           WHEN TIME(start_time) >= '15:30:00' THEN 'B'
+                           ELSE 'C'
+                       END as shift
+                FROM checkpoints
                 WHERE machine_id = %s
                   AND DATE(DATE_SUB(start_time, INTERVAL 7 HOUR)) >= %s
                   AND DATE(DATE_SUB(start_time, INTERVAL 7 HOUR)) <= %s
