@@ -231,7 +231,7 @@ def api_machine_report():
         with conn.cursor() as cur:
             cur.execute("""
                 SELECT *,
-                       DATE(DATE_SUB(start_time, INTERVAL 7 HOUR)) as logical_date,
+                       DATE_FORMAT(DATE_SUB(start_time, INTERVAL 7 HOUR), '%Y-%m-%d') as logical_date,
                        CASE 
                            WHEN TIME(start_time) >= '07:00:00' AND TIME(start_time) < '15:30:00' THEN 'A'
                            WHEN TIME(start_time) >= '15:30:00' THEN 'B'
