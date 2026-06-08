@@ -38,10 +38,13 @@ def api_dashboard_summary():
 
     try:
         end_date = datetime.strptime(date, '%Y-%m-%d')
-        if period == 'week':
-            start_date = end_date - timedelta(days=7)
-        elif period == 'month':
-            start_date = end_date - timedelta(days=30)
+    except ValueError:
+        return jsonify({'status': 'error', 'message': 'Invalid date format'}), 400
+
+    if period == 'week':
+        start_date = end_date - timedelta(days=6)
+    elif period == 'month':
+        start_date = end_date - timedelta(days=29)
         else:
             start_date = end_date
             
@@ -215,6 +218,14 @@ def api_machine_report():
         return jsonify({'status': 'error', 'message': 'Machine ID is required'}), 400
 
     try:
+        dt_start = datetime.strptime(start_date, '%Y-%m-%d')
+        dt_end = datetime.strptime(end_date, '%Y-%m-%d')
+        if (dt_end - dt_start).days > 30:
+            return jsonify({'status': 'error', 'message': 'Custom range cannot exceed 31 days'}), 400
+    except ValueError:
+        return jsonify({'status': 'error', 'message': 'Invalid date format'}), 400
+
+    try:
         conn = get_db()
         with conn.cursor() as cur:
             cur.execute("""
@@ -272,6 +283,10 @@ def api_export_excel():
     try:
         dt_start = datetime.strptime(start_date, '%Y-%m-%d')
         dt_end = datetime.strptime(end_date, '%Y-%m-%d')
+    except ValueError:
+        return jsonify({'status': 'error', 'message': 'Invalid date format'}), 400
+
+    try:
         if report_type == 'custom' and (dt_end - dt_start).days > 30:
             return jsonify({'status': 'error', 'message': 'Custom range cannot exceed 31 days'}), 400
 
