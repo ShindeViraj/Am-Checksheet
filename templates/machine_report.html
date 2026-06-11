@@ -422,18 +422,19 @@ function loadReport() {
                     }
 
                     const tr = document.createElement('tr');
-tr.className = 'hover:bg-surface-container-lowest transition-colors';
-                    tr.innerHTML = `
-                        <td class='p-md border-r border-[#e9ecef]'>${data.date}</td>
-                        <td class='p-md border-r border-[#e9ecef]'>${data.shift}</td>
-                        <td class='p-md border-r border-[#e9ecef]'>${machine}</td>
-                        <td class='p-md border-r border-[#e9ecef]'>${checks.length}</td>
-                        <td class='p-md border-r border-[#e9ecef]'>${ok}</td>
-                        <td class='p-md border-r border-[#e9ecef]'>${nok}</td>
-                        <td class='p-md border-r border-[#e9ecef]'>${firstStart || '-'}</td>
-                        <td class='p-md border-r border-[#e9ecef]'>${lastEnd || '-'}</td>
-                        <td class='p-md border-r border-[#e9ecef]'>${totalMins}</td>
-                    `;
+                    tr.className = 'hover:bg-surface-container-lowest transition-colors';
+                    
+                    const cells = [
+                        data.date, data.shift, machine, checks.length, ok, nok, 
+                        firstStart || '-', lastEnd || '-', totalMins
+                    ];
+                    
+                    cells.forEach(cellText => {
+                        const td = document.createElement('td');
+                        td.className = 'p-md border-r border-[#e9ecef]';
+                        td.textContent = cellText;
+                        tr.appendChild(td);
+                    });
                     tbody.appendChild(tr);
                 });
             } else {

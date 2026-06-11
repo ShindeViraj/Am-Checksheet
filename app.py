@@ -185,7 +185,8 @@ def api_dashboard_summary():
             }
         })
     except Exception as e:
-        return jsonify({'status': 'error', 'message': str(e)}), 500
+        app.logger.error(str(e))
+        return jsonify({'status': 'error', 'message': 'An internal error occurred.'}), 500
 
 
 # ---------------------------------------------------------------------------
@@ -202,7 +203,8 @@ def api_machines_list():
         conn.close()
         return jsonify({'status': 'success', 'data': machines})
     except Exception as e:
-        return jsonify({'status': 'error', 'message': str(e)}), 500
+        app.logger.error(str(e))
+        return jsonify({'status': 'error', 'message': 'An internal error occurred.'}), 500
 
 
 # ---------------------------------------------------------------------------
@@ -262,7 +264,8 @@ def api_machine_report():
             'data': data
         })
     except Exception as e:
-        return jsonify({'status': 'error', 'message': str(e)}), 500
+        app.logger.error(str(e))
+        return jsonify({'status': 'error', 'message': 'An internal error occurred.'}), 500
 
 
 # ---------------------------------------------------------------------------
@@ -327,7 +330,8 @@ def api_export_excel():
     except Exception as e:
         import traceback
         traceback.print_exc()
-        return jsonify({'status': 'error', 'message': str(e)}), 500
+        app.logger.error(str(e))
+        return jsonify({'status': 'error', 'message': 'An internal error occurred.'}), 500
 
 
 # ---------------------------------------------------------------------------
@@ -335,4 +339,5 @@ def api_export_excel():
 # ---------------------------------------------------------------------------
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8000, debug=True)
+    debug_mode = os.environ.get('FLASK_DEBUG', 'False').lower() == 'true'
+    app.run(host='0.0.0.0', port=8000, debug=debug_mode)

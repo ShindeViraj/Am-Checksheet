@@ -453,15 +453,33 @@ Requires immediate attention
         recent.forEach(r => {
             const tr = document.createElement('tr');
             tr.className = "border-b border-outline-variant/30";
-            const status = r.checkpoint_ok == 1
-                ? '<span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs font-bold shadow-sm">OK</span>'
-                : '<span class="px-2 py-1 bg-red-100 text-red-800 rounded-full text-xs font-bold shadow-sm">NOK</span>';
-            tr.innerHTML = `
-                <td class="p-2 font-body-md w-[20%] text-gray-800 font-medium">${r.machine_id}</td>
-                <td class="p-2 font-mono-data w-[8%] text-center text-gray-500">${r.checkpoint_no}</td>
-                <td class="p-2 font-body-md font-bold text-[#1f252a] text-[14px] leading-tight break-words whitespace-normal py-3 pr-4">${r.description || '-'}</td>
-                <td class="p-2 w-[10%] text-right">${status}</td>
-            `;
+            
+            const td1 = document.createElement('td');
+            td1.className = "p-2 font-body-md w-[20%] text-gray-800 font-medium";
+            td1.textContent = r.machine_id;
+            
+            const td2 = document.createElement('td');
+            td2.className = "p-2 font-mono-data w-[8%] text-center text-gray-500";
+            td2.textContent = r.checkpoint_no;
+            
+            const td3 = document.createElement('td');
+            td3.className = "p-2 font-body-md font-bold text-[#1f252a] text-[14px] leading-tight break-words whitespace-normal py-3 pr-4";
+            td3.textContent = r.description || '-';
+            
+            const td4 = document.createElement('td');
+            td4.className = "p-2 w-[10%] text-right";
+            const span = document.createElement('span');
+            span.className = r.checkpoint_ok == 1
+                ? 'px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs font-bold shadow-sm'
+                : 'px-2 py-1 bg-red-100 text-red-800 rounded-full text-xs font-bold shadow-sm';
+            span.textContent = r.checkpoint_ok == 1 ? 'OK' : 'NOK';
+            td4.appendChild(span);
+            
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+            tr.appendChild(td3);
+            tr.appendChild(td4);
+            
             tbody.appendChild(tr);
         });
     }
